@@ -1,0 +1,30 @@
+[gd_scene load_steps=3 format=3]
+
+[ext_resource type="Texture2D" uid="uid://cljhh42jtcyh1" path="res://assets/sprites/Square.png" id="1_SbUap"]
+[ext_resource type="Script" path="res://scripts/weapon_system/WeaponBase.gd" id="2_vjq4q"]
+
+[node name="ShortBow" type="Node2D"]
+script = ExtResource("2_vjq4q")
+weapon_type = 1
+base_damage = 10.0
+attack_speed = 0.8
+attack_range = 300.0
+max_durability = 70.0
+current_durability = 70.0
+weapon_name = "短弓"
+weapon_description = "简易木弓，可进行远程攻击。"
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_SbUap")
+modulate = Color("00ff00")  # 绿色
+scale = Vector2(0.4, 0.6)  # 弓的形状
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 32
+collision_mask = 32
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("3_CZzWp")
+
+[sub_resource type="CircleShape2D" id="3_CZzWp"]
+radius = 30.0

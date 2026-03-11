@@ -1,0 +1,30 @@
+[gd_scene load_steps=3 format=3]
+
+[ext_resource type="Texture2D" uid="uid://cljhh42jtcyh1" path="res://assets/sprites/Square.png" id="1_SbUap"]
+[ext_resource type="Script" path="res://scripts/weapon_system/WeaponBase.gd" id="2_vjq4q"]
+
+[node name="WoodSword" type="Node2D"]
+script = ExtResource("2_vjq4q")
+weapon_type = 0
+base_damage = 8.0
+attack_speed = 1.2
+attack_range = 50.0
+max_durability = 50.0
+current_durability = 50.0
+weapon_name = "木剑"
+weapon_description = "基础木制武器，适合初期使用。"
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_SbUap")
+modulate = Color("8b4513")  # 棕色
+scale = Vector2(0.5, 0.5)
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 32  # 预留拾取层
+collision_mask = 32
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("3_CZzWp")
+
+[sub_resource type="CircleShape2D" id="3_CZzWp"]
+radius = 25.0

@@ -1,0 +1,34 @@
+[gd_scene load_steps=5 format=3]
+
+[ext_resource type="TileSet" uid="uid://dq18ckq8p8d2r" path="res://assets/tilesets/island_tileset.tres" id="1"]
+[ext_resource type="Script" uid="uid://1911446050116855777" path="res://scripts/island_generation/IslandGenerator.gd" id="2"]
+[ext_resource type="Script" uid="uid://7675625806672834413" path="res://scripts/island_generation/BiomeManager.gd" id="3"]
+[ext_resource type="Script" uid="uid://6339188522999913549" path="res://scripts/island_generation/ResourceDistributor.gd" id="4"]
+
+[node name="IslandTest" type="Node2D"]
+
+[node name="TileMap" type="TileMap" parent="."]
+tile_set = ExtResource("1")
+cell_quadrant_size = 16
+collision_animatable = false
+
+[node name="IslandGenerator" type="Node2D" parent="."]
+script = ExtResource("2")
+island_width = 64
+island_height = 64
+island_radius = 0.4
+noise_scale = 10.0
+use_random_seed = true
+seed_value = 0
+biome_type = 0
+
+[node name="BiomeManager" type="Node" parent="IslandGenerator"]
+script = ExtResource("3")
+
+[node name="ResourceContainer" type="Node2D" parent="IslandGenerator"]
+
+[node name="HarborMarker" type="Marker2D" parent="IslandGenerator"]
+visible = false
+
+[node name="ResourceDistributor" type="Node" parent="IslandGenerator"]
+script = ExtResource("4")

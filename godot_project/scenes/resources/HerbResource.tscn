@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3]
+
+[ext_resource type="Texture2D" uid="uid://cljhh42jtcyh1" path="res://assets/sprites/Square.png" id="1"]
+
+[node name="HerbResource" type="Sprite2D"]
+texture = ExtResource("1")
+modulate = Color("00ff00")  # 绿色
+scale = Vector2(0.5, 0.5)

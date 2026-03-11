@@ -1,0 +1,37 @@
+[gd_scene load_steps=7 format=3]
+
+[ext_resource type="Texture2D" path="res://assets/sprites/Warrior_Blue.png" id="1"]
+[ext_resource type="Script" path="res://scripts/player/PlayerController.gd" id="2"]
+[ext_resource type="Script" path="res://scripts/player/CameraFollow.gd" id="3"]
+[ext_resource type="Script" path="res://scripts/player/AnimationManager.gd" id="4"]
+
+[node name="Player" type="CharacterBody2D"]
+script = ExtResource("2")
+speed = 300.0
+acceleration = 1500.0
+deceleration = 1800.0
+max_speed = 500.0
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1")
+centered = true
+offset = Vector2(0, -8)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("1")
+
+[node name="CameraFollow" type="Camera2D" parent="."]
+script = ExtResource("3")
+zoom = Vector2(1.5, 1.5)
+limit_left = -1000
+limit_top = -1000
+limit_right = 1000
+limit_bottom = 1000
+drag_margin_h_enabled = false
+drag_margin_v_enabled = false
+
+[node name="AnimationManager" type="Node" parent="."]
+script = ExtResource("4")
+
+[sub_resource type="RectangleShape2D" id="1"]
+size = Vector2(16, 16)

@@ -1,0 +1,62 @@
+Godot Engine v4.5.1.stable.mono.official.f62fdbde1 - https://godotengine.org
+
+ERROR: Parse Error: Parse error. [Resource file res://scenes/resources/WoodResource.tscn:7]
+   at: _parse_node_tag (scene/resources/resource_format_text.cpp:279)
+   GDScript backtrace (most recent call first):
+       [0] _init (res://get_uids.gd:12)
+ERROR: Failed loading resource: res://scenes/resources/WoodResource.tscn.
+   at: _load (core/io/resource_loader.cpp:343)
+   GDScript backtrace (most recent call first):
+       [0] _init (res://get_uids.gd:12)
+ERROR: Parse Error: Parse error. [Resource file res://scenes/resources/OreResource.tscn:7]
+   at: _parse_node_tag (scene/resources/resource_format_text.cpp:279)
+   GDScript backtrace (most recent call first):
+       [0] _init (res://get_uids.gd:12)
+ERROR: Failed loading resource: res://scenes/resources/OreResource.tscn.
+   at: _load (core/io/resource_loader.cpp:343)
+   GDScript backtrace (most recent call first):
+       [0] _init (res://get_uids.gd:12)
+ERROR: Parse Error: Parse error. [Resource file res://scenes/resources/HerbResource.tscn:7]
+   at: _parse_node_tag (scene/resources/resource_format_text.cpp:279)
+   GDScript backtrace (most recent call first):
+       [0] _init (res://get_uids.gd:12)
+ERROR: Failed loading resource: res://scenes/resources/HerbResource.tscn.
+   at: _load (core/io/resource_loader.cpp:343)
+   GDScript backtrace (most recent call first):
+       [0] _init (res://get_uids.gd:12)
+SCRIPT ERROR: Parse Error: Could not find type "BiomeManager" in the current scope.
+   at: GDScript::reload (res://scripts/island_generation/IslandGenerator.gd:13)
+   GDScript backtrace (most recent call first):
+       [0] _init (res://get_uids.gd:12)
+SCRIPT ERROR: Parse Error: Identifier "BiomeManager" not declared in the current scope.
+   at: GDScript::reload (res://scripts/island_generation/IslandGenerator.gd:13)
+   GDScript backtrace (most recent call first):
+       [0] _init (res://get_uids.gd:12)
+SCRIPT ERROR: Parse Error: Could not find type "BiomeManager" in the current scope.
+   at: GDScript::reload (res://scripts/island_generation/IslandGenerator.gd:17)
+   GDScript backtrace (most recent call first):
+       [0] _init (res://get_uids.gd:12)
+SCRIPT ERROR: Parse Error: Could not preload resource file "res://scenes/resources/WoodResource.tscn".
+   at: GDScript::reload (res://scripts/island_generation/IslandGenerator.gd:38)
+   GDScript backtrace (most recent call first):
+       [0] _init (res://get_uids.gd:12)
+SCRIPT ERROR: Parse Error: Could not preload resource file "res://scenes/resources/OreResource.tscn".
+   at: GDScript::reload (res://scripts/island_generation/IslandGenerator.gd:39)
+   GDScript backtrace (most recent call first):
+       [0] _init (res://get_uids.gd:12)
+SCRIPT ERROR: Parse Error: Could not preload resource file "res://scenes/resources/HerbResource.tscn".
+   at: GDScript::reload (res://scripts/island_generation/IslandGenerator.gd:40)
+   GDScript backtrace (most recent call first):
+       [0] _init (res://get_uids.gd:12)
+SCRIPT ERROR: Parse Error: Could not find type "BiomeManager" in the current scope.
+   at: GDScript::reload (res://scripts/island_generation/IslandGenerator.gd:69)
+   GDScript backtrace (most recent call first):
+       [0] _init (res://get_uids.gd:12)
+ERROR: Failed to load script "res://scripts/island_generation/IslandGenerator.gd" with error "Parse error".
+   at: load (modules/gdscript/gdscript.cpp:3041)
+   GDScript backtrace (most recent call first):
+       [0] _init (res://get_uids.gd:12)
+SCRIPT ERROR: Invalid call. Nonexistent function 'get_uid' in base 'String'.
+   at: _init (res://get_uids.gd:14)
+   GDScript backtrace (most recent call first):
+       [0] _init (res://get_uids.gd:14)

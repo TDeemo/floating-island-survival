@@ -1,0 +1,24 @@
+[gd_scene load_steps=7 format=3 uid="uid://d4y8l9w0m3n2o"]
+
+[ext_resource type="Script" path="res://scripts/lighting_system/CampfireLight.gd" id="1_8a5r9"]
+[ext_resource type="Texture2D" uid="uid://bpq9v7k8x3y2z" path="res://assets/sprites/Square.png" id="2_m7o0q"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_5x6y7"]
+
+[node name="Campfire" type="Node2D"]
+script = ExtResource("1_8a5r9")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_m7o0q")
+scale = Vector2(1, 1)
+modulate = Color(1, 0.6, 0.3, 1)
+
+[node name="Light2D" type="Light2D" parent="."]
+enabled = true
+color = Color(1, 0.6, 0.3, 1)
+energy = 1.2
+shadow_enabled = true
+shadow_color = Color(0, 0, 0, 0.3)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_5x6y7")

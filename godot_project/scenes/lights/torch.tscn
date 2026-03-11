@@ -1,0 +1,24 @@
+[gd_scene load_steps=7 format=3 uid="uid://d3x7k8v9l2m1n"]
+
+[ext_resource type="Script" path="res://scripts/lighting_system/TorchLight.gd" id="1_7z4q8"]
+[ext_resource type="Texture2D" uid="uid://bpq9v7k8x3y2z" path="res://assets/sprites/Square.png" id="2_l6n9p"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4w5x6"]
+
+[node name="Torch" type="Node2D"]
+script = ExtResource("1_7z4q8")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_l6n9p")
+scale = Vector2(0.5, 0.5)
+modulate = Color(1, 0.8, 0.5, 1)
+
+[node name="Light2D" type="Light2D" parent="."]
+enabled = true
+color = Color(1, 0.8, 0.5, 1)
+energy = 0.9
+shadow_enabled = true
+shadow_color = Color(0, 0, 0, 0.5)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_4w5x6")

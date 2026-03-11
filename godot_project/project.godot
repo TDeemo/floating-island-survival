@@ -1,0 +1,53 @@
+; Engine configuration for Floating Continent game
+; Pixel art style settings
+
+[application]
+
+config/name="Floating Continent"
+run/main_scene="res://scenes/main_island.tscn"
+config/icon="res://assets/icon.png"
+
+[display]
+
+window/size/width=640
+window/size/height=360
+window/stretch/mode="viewport"
+window/stretch/aspect="keep"
+window/stretch/scale=2
+
+[rendering]
+
+renderer/rendering_method="forward_plus"
+renderer/2d/scale_mode="viewport"
+renderer/2d/snap_2d_transforms_to_pixel=true
+renderer/2d/snap_2d_vertices_to_pixel=true
+renderer/2d/default_filter="Nearest"
+
+[input]
+
+; Input actions will be configured in Godot Editor
+ui_up={
+"deadzone": 0.5,
+"events": [{"physical_keycode":87}]
+}
+ui_down={
+"deadzone": 0.5,
+"events": [{"physical_keycode":83}]
+}
+ui_left={
+"deadzone": 0.5,
+"events": [{"physical_keycode":65}]
+}
+ui_right={
+"deadzone": 0.5,
+"events": [{"physical_keycode":68}]
+}
+
+[autoload]
+
+; Global singletons can be defined here
+; GameManager="res://scripts/global/GameManager.gd"
+
+[misc]
+
+config/version="0.1.0-dev"

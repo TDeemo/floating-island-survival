@@ -1,0 +1,142 @@
+[gd_scene load_steps=8 format=3]
+
+[ext_resource type="Script" path="res://scripts/day_night_system/TimeManager.gd" id="1_c7pkj"]
+[ext_resource type="Script" path="res://scripts/day_night_system/DayNightCycle.gd" id="2_ft5jq"]
+[ext_resource type="Script" path="res://scripts/day_night_system/MonsterNightBoostSystem.gd" id="3_w8n3z"]
+[ext_resource type="Script" path="res://scripts/day_night_system/PortEvacuationTimer.gd" id="4_ekx4q"]
+[ext_resource type="Texture2D" uid="uid://cljhh42jtcyh1" path="res://assets/sprites/Square.png" id="5_vh6p4"]
+[ext_resource type="Texture2D" uid="uid://cljhh42jtcyh1" path="res://assets/sprites/Square.png" id="6_vh6p4"]
+[ext_resource type="Script" path="res://scripts/monster_system/MonsterBase.gd" id="7_x8n3z"]
+
+[node name="TestDayNight" type="Node2D"]
+
+[node name="TimeManager" type="Node" parent="."]
+script = ExtResource("1_c7pkj")
+time_scale = 60.0
+time_enabled = true
+start_hour = 6
+start_minute = 0
+
+[node name="DayNightCycle" type="Node2D" parent="."]
+script = ExtResource("2_ft5jq")
+enabled = true
+canvas_modulate_path = NodePath("CanvasModulate")
+smooth_transition = true
+transition_duration = 30.0
+dawn_color = Color(1, 0.9, 0.7, 1)
+day_color = Color(1, 1, 1, 1)
+dusk_color = Color(1, 0.7, 0.5, 1)
+night_color = Color(0.3, 0.3, 0.5, 1)
+dawn_brightness = 0.8
+day_brightness = 1.0
+dusk_brightness = 0.6
+night_brightness = 0.3
+
+[node name="CanvasModulate" type="CanvasModulate" parent="DayNightCycle"]
+color = Color(1, 1, 1, 1)
+
+[node name="MonsterNightBoostSystem" type="Node" parent="."]
+script = ExtResource("3_w8n3z")
+enabled = true
+monster_group_name = "monsters"
+night_attack_multiplier = 1.5
+night_speed_multiplier = 1.2
+night_chase_range_multiplier = 2.0
+night_sight_range_multiplier = 1.5
+progressive_enhancement = true
+dusk_enhancement_ratio = 0.5
+
+[node name="PortEvacuationTimer" type="Control" parent="."]
+script = ExtResource("4_ekx4q")
+enabled = true
+warning_start_hour = 18
+evacuation_deadline_hour = 20
+warning_color = Color(1, 0.8, 0, 1)
+emergency_color = Color(1, 0.2, 0.2, 1)
+safe_color = Color(0.8, 1, 0.8, 1)
+time_label_path = NodePath("TimeLabel")
+status_label_path = NodePath("StatusLabel")
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="TimeLabel" type="Label" parent="PortEvacuationTimer"]
+text = "00:00:00"
+horizontal_alignment = 1
+vertical_alignment = 1
+layout_direction = 0
+language = "en"
+autowrap_mode = 0
+justification_flags = 0
+clip_text = false
+tab_stops = PackedFloat32Array()
+tab_align = 0
+self_modulate = Color(1, 1, 1, 1)
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -50.0
+offset_top = -15.0
+offset_right = 50.0
+offset_bottom = 15.0
+
+[node name="StatusLabel" type="Label" parent="PortEvacuationTimer"]
+text = "安全时段"
+horizontal_alignment = 1
+vertical_alignment = 1
+layout_direction = 0
+language = "en"
+autowrap_mode = 0
+justification_flags = 0
+clip_text = false
+tab_stops = PackedFloat32Array()
+tab_align = 0
+self_modulate = Color(1, 1, 1, 1)
+anchor_left = 0.5
+anchor_top = 0.3
+anchor_right = 0.5
+anchor_bottom = 0.3
+offset_left = -100.0
+offset_top = -15.0
+offset_right = 100.0
+offset_bottom = 15.0
+
+[node name="TestPlayer" type="Sprite2D" parent="."]
+texture = ExtResource("5_vh6p4")
+modulate = Color(0, 0.5, 1, 1)
+scale = Vector2(0.5, 0.5)
+position = Vector2(100, 100)
+
+[node name="TestMonster" type="CharacterBody2D" parent="."]
+script = ExtResource("7_x8n3z")
+monster_type = 0
+base_health = 50.0
+current_health = 50.0
+base_attack = 10.0
+move_speed = 100.0
+attack_range = 50.0
+chase_range = 300.0
+sight_range = 200.0
+monster_name = "测试怪物"
+monster_description = "用于测试夜晚强化的怪物"
+enhanced_at_night = true
+night_enhancement_multiplier = 1.5
+associated_biome = -1
+drop_resource_type = "wood"
+drop_amount_min = 1
+drop_amount_max = 3
+drop_weapon_chance = 0.1
+drop_weapon_type = 0
+
+[node name="Sprite2D" type="Sprite2D" parent="TestMonster"]
+texture = ExtResource("6_vh6p4")
+modulate = Color(1, 0.2, 0.2, 1)
+scale = Vector2(0.5, 0.5)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="TestMonster"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TestMonster"]
+shape = SubResource("8_YZw3p")
+
+[sub_resource type="CircleShape2D" id="8_YZw3p"]
+radius = 25.0

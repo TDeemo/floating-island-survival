@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3]
+
+[ext_resource type="Texture2D" uid="uid://cljhh42jtcyh1" path="res://assets/sprites/Square.png" id="1"]
+[ext_resource type="Script" uid="uid://ct0jxvv22ddea" path="res://scripts/test_texture.gd" id="2"]
+
+[node name="MainIsland" type="Node2D"]
+script = ExtResource("2")
+
+[node name="TestSprite" type="Sprite2D" parent="."]
+texture = ExtResource("1")
+position = Vector2(320, 180)

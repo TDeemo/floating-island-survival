@@ -1,0 +1,73 @@
+[gd_scene load_steps=5 format=3]
+
+[ext_resource type="Script" path="res://scripts/monster_system/MonsterBase.gd" id="1"]
+[ext_resource type="Script" path="res://scripts/monster_system/MonsterAI.gd" id="2"]
+[ext_resource type="Texture2D" uid="uid://cljhh42jtcyh1" path="res://assets/sprites/Square.png" id="3"]
+
+[sub_resource type="RectangleShape2D" id="1"]
+size = Vector2(32, 32)
+
+[sub_resource type="Animation" id="2"]
+length = 1.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite2D:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"values": [Color(0.8, 0.8, 0.8, 1)]
+}
+
+[sub_resource type="Animation" id="3"]
+length = 0.5
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite2D:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"values": [Color(0.6, 0.6, 0.6, 1)]
+}
+
+[node name="SkeletonMelee" type="CharacterBody2D"]
+script = ExtResource("1")
+base_health = 60.0
+current_health = 60.0
+base_attack = 15.0
+move_speed = 80.0
+attack_range = 40.0
+chase_range = 250.0
+sight_range = 180.0
+monster_name = "骷髅战士"
+monster_description = "近战怪物，使用骨剑攻击，移动缓慢但伤害较高。"
+enhanced_at_night = true
+night_enhancement_multiplier = 1.6
+drop_resource_type = "bone"
+drop_amount_min = 2
+drop_amount_max = 4
+drop_weapon_chance = 0.15
+drop_weapon_type = 0
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("3")
+modulate = Color(0.8, 0.8, 0.8, 1)
+scale = Vector2(0.8, 0.8)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("1")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+autoplay = "idle"
+anims/idle = SubResource("2")
+anims/walk = SubResource("3")
+
+[node name="MonsterAI" type="Node" parent="."]
+script = ExtResource("2")
+ai_behavior = 0
+detection_interval = 0.7

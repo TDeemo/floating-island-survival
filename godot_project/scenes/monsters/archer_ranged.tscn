@@ -1,0 +1,74 @@
+[gd_scene load_steps=5 format=3]
+
+[ext_resource type="Script" path="res://scripts/monster_system/MonsterBase.gd" id="1"]
+[ext_resource type="Script" path="res://scripts/monster_system/MonsterAI.gd" id="2"]
+[ext_resource type="Texture2D" uid="uid://cljhh42jtcyh1" path="res://assets/sprites/Square.png" id="3"]
+
+[sub_resource type="RectangleShape2D" id="1"]
+size = Vector2(28, 28)
+
+[sub_resource type="Animation" id="2"]
+length = 1.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite2D:modulate")
+tracks/0/interpr = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"values": [Color(0.7, 0.85, 0.7, 1)]
+}
+
+[sub_resource type="Animation" id="3"]
+length = 0.4
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite2D:modulate")
+tracks/0/interpr = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"values": [Color(0.6, 0.8, 0.6, 1)]
+}
+
+[node name="ArcherRanged" type="CharacterBody2D"]
+script = ExtResource("1")
+monster_type = 1
+base_health = 40.0
+current_health = 40.0
+base_attack = 12.0
+move_speed = 100.0
+attack_range = 120.0
+chase_range = 300.0
+sight_range = 220.0
+monster_name = "森林弓箭手"
+monster_description = "远程怪物，使用弓箭攻击，保持距离并尝试风筝玩家。"
+enhanced_at_night = true
+night_enhancement_multiplier = 1.4
+drop_resource_type = "arrow"
+drop_amount_min = 3
+drop_amount_max = 6
+drop_weapon_chance = 0.2
+drop_weapon_type = 1
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("3")
+modulate = Color(0.7, 0.85, 0.7, 1)
+scale = Vector2(0.7, 0.7)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("1")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+autoplay = "idle"
+anims/idle = SubResource("2")
+anims/walk = SubResource("3")
+
+[node name="MonsterAI" type="Node" parent="."]
+script = ExtResource("2")
+ai_behavior = 1
+detection_interval = 0.6
